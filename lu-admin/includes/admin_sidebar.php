@@ -95,6 +95,23 @@
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
+
+<!--  Student Fee Portal -->
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#student_fee2"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Fee Portal Management </span>
+        </a>
+        <div id="student_fee2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">All History:</h6>
+                <a class="collapse-item" href="view_payment_history.php?source=view_payment_history"> View Payment History </a>
+            </div>
+        </div>
+    </li>
+
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

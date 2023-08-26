@@ -39,6 +39,7 @@
                        <?php }else{ ?>
 
                             <form action="assets/includes/action.php" method="post" enctype="multipart/form-data">
+
                                 <div class="register-form">
 
                                     <div class="form-group">

@@ -19,7 +19,7 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-            <?php if(($_SESSION['user_role'] == 'super_admin') || ($_SESSION['user_role'] == 'teacher') ){ ?>
+            <?php if( ($_SESSION['user_role'] == 'student') ){ ?>
                 <!-- Main Content Panel -->
 
                 <?php
@@ -31,17 +31,8 @@
                 }
 
                 switch($source){
-                    case 'all_student':
-                        include "student_fee_components/all_student.php";
-                        break;
-                    case 'add_student_fee':
-                        include "student_fee_components/add_student_fee.php";
-                        break;
-                    case 'manage_student_fee':
-                        include "student_fee_components/manage_student_fees.php";
-                        break;
-                    case 'edit_student_fee':
-                        include "student_fee_components/edit_student_fee.php";
+                    case 'view_payment_history':
+                        include "student_fee_components/view_payment_history.php";
                         break;
                     default:
                         invalid_url();

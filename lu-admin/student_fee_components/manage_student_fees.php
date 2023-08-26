@@ -52,6 +52,7 @@
 
                             ?>
                             <tr>
+
                                 <td><?php echo $fee_id ?> </td>
                                 <td><?php echo $student_id ?></td>
                                 <td><?php echo $student_semester ?></td>
@@ -63,24 +64,22 @@
                                 <td><?php echo $add_date ?></td>
 
 
-
                                 <td>
                                     <div class="d-flex align-items-center">
 
 
-                                        <a href="#">
+                                        <a href="student_fee.php?source=edit_student_fee&fee_id=<?php echo $fee_id ?>">
                                             <button type="submit" class="btn btn-success btn-sm btn-icon-text mr-3" name="update_btn">
                                                 Edit
-
                                             </button>
                                         </a>
 
-                                        <a href="#">
-                                            <button type="submit" class="btn btn-danger btn-sm btn-icon-text" name="delete_btn">
-                                                Delete
-
-                                            </button>
-                                        </a>
+<!--                                        <a href="#">-->
+<!--                                            <button type="submit" class="btn btn-danger btn-sm btn-icon-text" name="delete_btn">-->
+<!--                                                Delete-->
+<!---->
+<!--                                            </button>-->
+<!--                                        </a>-->
 
                                     </div>
                                 </td>

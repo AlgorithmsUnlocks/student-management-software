@@ -5,6 +5,7 @@ session_start();
 <?php include "../../lu-admin/includes/database.php"; ?>
 <?php
 
+global $connection;
 if(isset($_POST['login_btn'])){
 
     $st_id = real_escape($_POST['st_id']);

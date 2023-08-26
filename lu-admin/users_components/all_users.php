@@ -55,9 +55,9 @@
 
                                     <?php
 
-                                    $query = "SELECT * FROM `department` WHERE department_id=$department";
-                                    $query_fetch_users = mysqli_query($connection, $query);
-                                    while($row = mysqli_fetch_assoc($query_fetch_users)) {
+                                    $query_1 = "SELECT * FROM `department` WHERE department_id=$department";
+                                    $query_fetch_users_1 = mysqli_query($connection, $query_1);
+                                    while($row = mysqli_fetch_assoc($query_fetch_users_1)) {
 
                                         $department_id = $row['department_id'];
                                         $department_name = $row['department_name'];
