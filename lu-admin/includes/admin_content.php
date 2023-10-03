@@ -89,6 +89,28 @@
             </div>
         </div>
     </div>
+    <div class='col-md-4 grid-margin stretch-card mt-4'>
+        <div class='card'>
+            <div class='card-body'>
+                <div class='d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap mb-4'>
+                    <div>
+                        <p class='mb-2 text-md-center text-lg-left'>Total Contact Forms Submission </p>
+                        <?php
+
+                        $query = 'SELECT * FROM contact';
+                        $query_fetch = mysqli_query($connection, $query);
+                        $query_fetch_count = mysqli_num_rows($query_fetch);
+
+                        ?>
+                        <h1 class="mb-0"><?php echo $query_fetch_count; ?></h1>
+
+                    </div>
+                    <i class="typcn typcn-clipboard icon-xl text-secondary"></i>
+                </div>
+                <a href="contact-forms.php?source=all_contact" class="btn btn-primary form-control">View </a>
+            </div>
+        </div>
+    </div>
 
 </div>
 

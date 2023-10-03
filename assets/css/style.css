@@ -2006,3 +2006,14 @@ section#services {
   background-size: cover!important;
   min-height: 300px;
 }
+.feature-grid-wrapper-new {
+  background: #007bff1f;
+  padding: 2rem;
+}
+.feature-grid-wrapper-new button#register-btn {
+  background: #28a745;
+  padding: 1rem 3rem;
+  color: white;
+  font-size: 18px;
+  font-weight: 800;
+}

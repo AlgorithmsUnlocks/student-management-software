@@ -9,7 +9,6 @@
     text-decoration: none!important;
     border: 0;
     text-transform: capitalize;
-    
 }
 
 :root{
@@ -403,4 +402,15 @@ img.footer-small-logo {
 
 body#registration-mode {
     background: linear-gradient(90deg, #c693c4, #b9a3e0, #a0b4f8, #7ec6ff, #55d7ff, #2fe7ff, #39f4f7, #67ffe1);
+}
+.feature-grid-wrapper-new {
+    background: #007bff1f;
+    padding: 2rem;
+}
+.feature-grid-wrapper-new button#register-btn {
+    background: #28a745;
+    padding: 1rem 3rem;
+    color: white;
+    font-size: 18px;
+    font-weight: 800;
 }

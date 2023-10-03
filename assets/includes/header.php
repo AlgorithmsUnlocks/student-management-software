@@ -38,11 +38,9 @@
         <div class="row align-items-center justify-content-between">
             <a href="index.php" class="logo">LeadingUniversity <span>AID </span></a>
             <nav class="navbar">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#service">Service</a>
-                <a href="#reviews">Reviews</a>
-                <a href="#contact">Contact</a>
+                <a href="index.php">Home</a>
+                <a href="all_donors.php">All Donors</a>
+                <a href="contact.php">Contact</a>
             </nav>
             <?php
 

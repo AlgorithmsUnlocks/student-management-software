@@ -18,3 +18,8 @@ window.onscroll = () =>{
     }
 }
 
+
+// Datatables APIS
+$(document).ready(function () {
+    $('#example').DataTable();
+});

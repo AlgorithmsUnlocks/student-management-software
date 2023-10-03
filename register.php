@@ -38,7 +38,7 @@
                         <?php }else{ ?>
                             <div class="register-left-content">
 
-                                <form action="../assets/includes/action.php" method="post" enctype="multipart/form-data">
+                                <form action="../assets/includes/register_action.php" method="post" enctype="multipart/form-data">
                                     <div class="register-form">
                                         <div class="form-group">
                                             <input type="text" class='form-control' name='student_name' placeholder='Student Name' required>

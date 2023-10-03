@@ -90,7 +90,19 @@
         </div>
     </li>
 
-
+    <li class='nav-item'>
+        <a class='nav-link collapsed' href='#' data-toggle='collapse' data-target='#contact'
+           aria-expanded='true' aria-controls='collapseTwo'>
+            <i class='fas fa-fw fa-cog'></i>
+            <span>Contact Forms</span>
+        </a>
+        <div id='contact' class='collapse' aria-labelledby='headingTwo' data-parent='#accordionSidebar'>
+            <div class='bg-white py-2 collapse-inner rounded'>
+                <h6 class='collapse-header'>contact:</h6>
+                <a class='collapse-item' href="contact-forms.php?source=all_contact">User Profiles</a>
+            </div>
+        </div>
+    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
