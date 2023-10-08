@@ -17,11 +17,10 @@
                   <div class="feature-grid-wrapper">
 
 
-
                       <?php
 
                       global $connection;
-                      $query = "SELECT * FROM `users`";
+                      $query = "SELECT * FROM `feature`";
                       $query_run = mysqli_query($connection, $query);
                       confirmQuery($query_run);
 
@@ -29,49 +28,34 @@
                       if($user_count > 0){
 
                           while ($row = mysqli_fetch_assoc($query_run)){
-                              $user_id  = $row['id'];
+                              $feature_id  = $row['id'];
                               $name  = $row['name'];
-                              $email  = $row['email'];
-                              $phone = $row['phone'];
-                              $st_id  = $row['st_id'];
-                              $department = $row['department'];
-                              $dob  = $row['dob'];
-                              $blood_group = $row['blood_group'];
-                              $profile = $row['profile'];
-                              $user_role = $row['user_role'];
-                              $create_date = $row['create_date'];
-                              ?>
-
-                              <div class='grid-box'>
-                                  <i class='fa-solid fa-code'></i>
-                                  <h4><?php echo $name ?></h4>
-                              </div>
-
-                          <?php
                           }
 
-                      }else{
-                          echo "No Student Found";
                       }
 
                       $feature_item = [
-                              "Safe & Secure",
-                          "Safe & Secure",
-                          "Safe & Secure",
-                          "Safe & Secure",
-                          "Safe & Secure",
-                          "Safe & Secure",
-                          "Safe & Secure",
-                          "Safe & Secure",
-                          "Safe & Secure",
-                          "Safe & Secure",
-                          "Safe & Secure",
-                          "Safe & Secure",
-                          "Safe & Secure"
+                              "Register Systems",
+                          "(Student, Teacher, Account Officer)",
+                          "Login System",
+                          "University Fee Management",
+                          "Student Fee Portal",
+                          "Accountant Action",
+                          "Blood Donations Systems",
+                          "Student Dashboard",
 
                       ];
 
+                      foreach ($feature_item as $feature){ ?>
+                          <div class='grid-box'>
+                              <i class='fa-solid fa-code'></i>
+                              <h4> <?php echo  $feature; ?> </h4>
+                          </div>
+                     <?php }
+
                       ?>
+
+
                   </div>
               </div>
           </div>

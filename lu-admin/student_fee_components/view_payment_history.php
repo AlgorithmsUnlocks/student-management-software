@@ -62,7 +62,7 @@
                                 <td><?php echo $course_credit ?></td>
                                 <td><?php echo $course_fee ?></td>
                                 <td><?php echo $received_fee ?></td>
-                                <td><?php echo  $course_fee - $received_fee; ?></td>
+                                <td style="color: red"><?php echo  $course_fee - $received_fee; ?></td>
                                 <td><?php echo $receiver_name ?></td>
                                 <td><?php echo $add_date ?></td>
                             </tr>

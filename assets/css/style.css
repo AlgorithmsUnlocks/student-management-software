@@ -2017,3 +2017,7 @@ section#services {
   font-size: 18px;
   font-weight: 800;
 }
+h4.custom-cursor-on-hover {
+  font-size: 20px;
+  line-height: 32px;
+}
