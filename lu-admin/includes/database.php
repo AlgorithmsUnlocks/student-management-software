@@ -3,7 +3,7 @@
 
 $db['server_name'] = "localhost";
 $db['user_name'] = "root";
-$db['user_password'] = "root1234";
+$db['user_password'] = "root";
 $db['database_name'] = "lu-aid";
 
 foreach ($db as $key => $value){

@@ -1,52 +1,38 @@
 <?php
 
-//Add Students Fees
-
-
-if(isset($_POST['add_fees'])){
-
+// Add Students Fees
+if(isset($_POST['add_fees'])) {
     $student_id =  real_escape($_POST['student_id']);
     $student_semester = real_escape($_POST['student_semester']);
-    $course_credit	= real_escape($_POST['course_credit']);
+    $course_credit = real_escape($_POST['course_credit']);
     $course_fee = real_escape($_POST['course_fee']);
     $received_fee = real_escape($_POST['received_fee']);
-    $due_fee =  $course_fee - $received_fee;
+    $due_fee = intval($course_fee) - intval($received_fee);
     $receiver_name = real_escape($_POST['receiver_name']);
 
+    global $connection;
 
-    $duplicate_student_semester = mysqli_query($connection,"SELECT `student_semester` FROM `student_fees` WHERE `student_semester` = '$student_semester'");
-    $duplicate_student_id_for_fee = mysqli_query($connection,"SELECT `student_id` FROM `student_fees` WHERE `student_id` = '$student_id'");
+    $duplicate_records_query = mysqli_query($connection, "SELECT * FROM `student_fees` WHERE `student_id` = '$student_id' AND `student_semester` = '$student_semester'");
 
-
-    if(!empty($student_id) && !empty($student_semester) && !empty($course_credit) && !empty($course_fee) && !empty($received_fee) && !empty($receiver_name) ){
-
-        if(mysqli_num_rows($duplicate_student_semester) && mysqli_num_rows($duplicate_student_id_for_fee) ){
-            echo "<script> alert('Student Semester is already Input');</script>";
-        }else{
+    if(mysqli_num_rows($duplicate_records_query) > 0) {
+        echo "<script> alert('Student ID and Semester are already inserted!');</script>";
+    } else {
+        if(!empty($student_id) && !empty($student_semester) && !empty($course_credit) && !empty($course_fee) && !empty($received_fee) && !empty($receiver_name)) {
             $query = "INSERT INTO `student_fees`(`student_id`, `student_semester`, `course_credit`, `course_fee`, `received_fee`, `due_fee`, `receiver_name`) VALUES ('$student_id','$student_semester','$course_credit','$course_fee','$received_fee','$due_fee','$receiver_name')";
 
             $query_run = mysqli_query($connection,$query);
 
-            if($query_run){
-
+            if($query_run) {
                 echo "<h6 class='bg-warning text-center p-3 text-white'>Congratulations, Fee Added Successfully </h6>";
-
-            }else{
+            } else {
                 echo "<h6 class='bg-warning text-center p-3 text-white'>Failed</h6>";
             }
+        } else {
+            echo "<h6 class='bg-warning text-center p-3 text-white'>OOPS, Some Data are missing</h6>";
         }
-
-
-    }else{
-
-        echo "<h6 class='bg-warning text-center p-3 text-white'>OOPS, Some Data are missing</h6>";
     }
-
 }
-
-
 ?>
-
 
 <div class="row">
 
