@@ -18,7 +18,7 @@ code. Happy Installation
 Just very Simple Project, that can make your mind blow up.
 ## Contributing
 
-If you want to contribute this project here is the link: [https://github.com/AlgorithmsUnlocks/ALGO_SOFT].
+If you want to contribute this project here is the link: [https://github.com/AlgorithmsUnlocks/library-management-software].
 ## License
 
 This project is licensed under the [Private License] License - see the [LICENSE](LICENSE) file for details.
