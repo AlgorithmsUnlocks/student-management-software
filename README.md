@@ -1,28 +1,19 @@
-# University Management Project.
+# University Project Development
+(LU AID)
 
-This project can help you to build the smooth UI for both student, teacher and manager.
+# Registration Systems → (Student, Teacher, Account Officer)
+University Fee Management →
 
-## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Credits](#credits)
+1. Students can see their due and previous payment
+2. Accounts can update their fees and data
+3. Blood Donations Systems
+4. Student Information and available list
 
-## Installation
 
-To install this you will need to have any local environment or live environment set up for run the PHP and MySQL 
-code. Happy Installation
-## Usage
+# Front-end: HTML CSS Bootstrap Tailwind CSS
 
-Just very Simple Project, that can make your mind blow up.
-## Contributing
+# Backend: PHP, PHP OOP
 
-If you want to contribute this project here is the link: [https://github.com/AlgorithmsUnlocks/library-management-software].
-## License
+# Database: MySQL
 
-This project is licensed under the [Private License] License - see the [LICENSE](LICENSE) file for details.
-
-## Credits
-
-Credit for admin panel dashboard is the Boostrap Admin Dashboard.
+# Additional: PHP Mailer
