@@ -18,8 +18,14 @@
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
+                <?php
+                $users_role = $_SESSION['user_role'];
+                if($users_role != 'student'){ ?>
 
                 <?php include("includes/admin_content.php") ?>
+                <?php }else{
+                    echo "NO DATA FOUND";
+                } ?>
 
             </div>
             <!-- /.container-fluid -->

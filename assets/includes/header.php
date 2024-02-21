@@ -45,7 +45,7 @@
             <?php
 
             if(isset($_SESSION['st_id'])){ ?>
-                <a class="getstarted" href="../../lu-admin/user_profiles.php">Profile</a>
+                <a class="getstarted" href="./lu-admin/user_profiles.php">Profile</a>
             <?php  }else{ ?>
 
                 <a href="register.php" class="link-btn"> Registration From Here</a>

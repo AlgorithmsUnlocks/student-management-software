@@ -9,7 +9,7 @@
                         <p class="mb-2 text-md-center text-lg-left">Total  Department</p>
                         <?php
 
-                        $query = "SELECT * FROM department";
+                        $query = "SELECT * FROM `department`";
                         $query_fetch_department = mysqli_query($connection,$query);
                         $query_fetch_department_count = mysqli_num_rows($query_fetch_department);
 
@@ -31,7 +31,7 @@
                         <p class="mb-2 text-md-center text-lg-left">Total Register Users </p>
                         <?php
 
-                        $query = "SELECT * FROM users";
+                        $query = "SELECT * FROM `users`";
                         $query_fetch = mysqli_query($connection,$query);
                         $query_fetch_count = mysqli_num_rows($query_fetch);
 
@@ -50,10 +50,10 @@
             <div class="card-body">
                 <div class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap mb-4">
                     <div>
-                        <p class="mb-2 text-md-center text-lg-left">Total Register Users </p>
+                        <p class="mb-2 text-md-center text-lg-left">Total Register Student </p>
                         <?php
 
-                        $query = "SELECT * FROM users WHERE user_role='student'";
+                        $query = "SELECT * FROM `users` WHERE user_role='student'";
                         $query_fetch = mysqli_query($connection,$query);
                         $query_fetch_count = mysqli_num_rows($query_fetch);
 
@@ -72,10 +72,10 @@
             <div class="card-body">
                 <div class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap mb-4">
                     <div>
-                        <p class="mb-2 text-md-center text-lg-left">Total Register Users </p>
+                        <p class="mb-2 text-md-center text-lg-left">Total Student Fee Received </p>
                         <?php
 
-                        $query = "SELECT * FROM student_fees";
+                        $query = "SELECT * FROM `student_fees`";
                         $query_fetch = mysqli_query($connection,$query);
                         $query_fetch_count = mysqli_num_rows($query_fetch);
 
@@ -97,7 +97,7 @@
                         <p class='mb-2 text-md-center text-lg-left'>Total Contact Forms Submission </p>
                         <?php
 
-                        $query = 'SELECT * FROM contact';
+                        $query = 'SELECT * FROM `contact`';
                         $query_fetch = mysqli_query($connection, $query);
                         $query_fetch_count = mysqli_num_rows($query_fetch);
 
