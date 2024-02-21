@@ -28,10 +28,12 @@ if(isset($_POST['login_btn'])){
         $db_user_password = $row['password'];
         $db_user_role = $row['user_role'];
         $db_create_date = $row['create_date'];
+        $is_verify  = $row['is_verify'];
+        echo $is_verify;
     }
-    if($st_id !== $db_st_id && $user_password !== $db_user_password){
-        header('Location: ../../login.php');
-    }else if($st_id == $db_st_id && $user_password == $db_user_password) {
+    if(($st_id !== $db_st_id) || ($user_password !== $db_user_password) || ($is_verify != 1)){
+        echo "<script>alert('Verification Failed'); location.href = '../../login.php'; </script>";
+    }else if($st_id == $db_st_id && $user_password == $db_user_password ) {
 
             session_start();
 

@@ -1,5 +1,6 @@
 <?php
- 
+
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -12,20 +13,21 @@ require('SMTP.php');
  
 $mail = new PHPMailer(true);
 
+
 try {
     //Server settings
-    //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                       
+//    $mail->SMTPDebug = SMTP::DEBUG_SERVER;
     $mail->isSMTP();                                             
     $mail->Host       = 'smtp.gmail.com';                     
     $mail->SMTPAuth   = true;                                   
-    $mail->Username   = 'youremail@gmail.com';                     
-    $mail->Password   = 'password';                                
+    $mail->Username   = 'algorithmsunlocks@gmail.com';
+    $mail->Password   = '96P^xq96P^xq96P^xq';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;             
-    $mail->Port       = 465;                                    
+    $mail->Port       = 587;
 
     //Recipients
-    $mail->setFrom('youremail@gmail.com', 'PHP Mailer Test');
-    $mail->addAddress('youremail@gmail.com');      
+    $mail->setFrom('algorithmsunlocks@gmail.com', 'PHP Mailer Test');
+    $mail->addAddress('algorithmsunlocks@gmail.com');
    
     /*
     //Attachments

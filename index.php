@@ -19,21 +19,6 @@
 
                       <?php
 
-                      global $connection;
-                      $query = "SELECT * FROM `feature`";
-                      $query_run = mysqli_query($connection, $query);
-                      confirmQuery($query_run);
-
-                      $user_count = mysqli_num_rows($query_run);
-                      if($user_count > 0){
-
-                          while ($row = mysqli_fetch_assoc($query_run)){
-                              $feature_id  = $row['id'];
-                              $name  = $row['name'];
-                          }
-
-                      }
-
                       $feature_item = [
                               "Register Systems",
                           "(Student, Teacher, Account Officer)",
@@ -54,7 +39,6 @@
                      <?php }
 
                       ?>
-
 
                   </div>
               </div>

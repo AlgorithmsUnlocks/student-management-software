@@ -1,4 +1,5 @@
 <?php ob_start(); ?>
+<?php session_start(); ?>
 <?php include "lu-admin/includes/database.php"; ?>
 <!doctype html>
     <html lang="en">
@@ -38,7 +39,7 @@
                         <?php }else{ ?>
                             <div class="register-left-content">
 
-                                <form action="../assets/includes/register_action.php" method="post" enctype="multipart/form-data">
+                                <form action="assets/includes/register_action.php" method="post" enctype="multipart/form-data">
                                     <div class="register-form">
                                         <div class="form-group">
                                             <input type="text" class='form-control' name='student_name' placeholder='Student Name' required>
@@ -61,6 +62,7 @@
                                             <select name="student_department" class='form-control'>
                                                 <option value="">Select Department</option>
                                                 <?php
+                                                global $connection;
                                                 $query = "SELECT * FROM department";
                                                 $query_run = mysqli_query($connection,$query);
                                                 while($row = mysqli_fetch_assoc($query_run)){

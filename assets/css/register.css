@@ -8,8 +8,10 @@
     font-family: 'Poppins', sans-serif;
 }
 body#register-page{
-    background-image: url("../../upload/screenshots.jpg");
+    background-image: url("../../upload/registration-bg.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
+    /*background-position: center;*/
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -19,25 +21,36 @@ Student Registration Styling
 
 .registration-form
 {
-    background: #0ab9a4f0;
+    background: #1b146421;
     margin: 5rem auto;
     padding: 30px 10px;
-    border-radius: 50px!important;
+    border-radius: 5px!important;
     max-width: 800px;
+    border: 4px dashed #1B1464;
 }
 .registration-form h4
 {
     font-size: 38px;
-    color: #4C0AB9;
+    color: white;
     font-weight: bolder;
 }
 .registration-form p
 {
-    font-style: normal;
+    font-style: italic;
     font-weight: 400;
     font-size: 16px;
     line-height: 30px;
-    padding: 0 25px;
+    padding: 10px 25px;
+    background: #1B1464;
+    color: white;
+}
+.registration-form p>a {
+    background: red;
+    padding: .5rem 1rem;
+    margin-left: 2rem;
+    color: white;
+    text-transform: capitalize;
+    font-weight: 600;
 }
 .registration-form .register-form input,.register-form select
 {
@@ -52,7 +65,7 @@ Student Registration Styling
 }
 .register-form #register-btn
 {
-    background: #4C0AB9;
+    background: #1B1464;
     border-radius: 10px;
     width: 50%;
     font-style: normal;
