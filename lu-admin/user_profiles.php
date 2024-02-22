@@ -45,7 +45,20 @@
                                         <p class="font-italic mb-1">Email : <?php echo $_SESSION['email']; ?></p>
                                         <p class="font-italic mb-1">Phone Number : <?php echo $_SESSION['phone']; ?></p>
                                         <p class="font-italic mb-0">Your ID. : <?php echo $_SESSION['st_id']; ?></p>
-                                        <p class="font-italic mb-0">Department : <?php echo $_SESSION['department']; ?></p>
+                                        <p class="font-italic mb-0">Department :
+                                            <?php
+                                            $department = $_SESSION['department'];
+                                            $query_1 = "SELECT * FROM `department` WHERE department_id=$department";
+                                            $query_fetch_users_1 = mysqli_query($connection, $query_1);
+                                            while($row = mysqli_fetch_assoc($query_fetch_users_1)) {
+
+                                                $department_id = $row['department_id'];
+                                                $department_name = $row['department_name'];
+                                                echo $department_name;
+                                            }
+                                            ?>
+
+                                        </p>
                                         <p class="font-italic mb-0">Date of Birth : <?php echo $_SESSION['dob']; ?></p>
                                         <p class="font-italic mb-0">Blood Group : <?php echo $_SESSION['blood_group']; ?></p>
                                         <p class="font-italic mb-0">I am : <?php echo $_SESSION['user_role']; ?></p>
