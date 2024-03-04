@@ -5,7 +5,7 @@
 if(isset($_GET['user_id'])){
     $user_id = $_GET['user_id'];
 
-    $query = "SELECT * FROM users WHERE id = '$user_id'";
+    $query = "SELECT * FROM `users` WHERE id = '$user_id'";
     $query_fetch_single_users = mysqli_query($connection,$query);
 
     confirmQuery($query_fetch_single_users);
@@ -39,6 +39,13 @@ if(isset($_GET['user_id'])){
             <div class="card-body">
 
                 <h4 class="card-title text-center">Edit Users</h4>
+                <?php
+
+                $url = $profile;
+                $cleaned_url = str_replace("../", "", $url);
+
+                ?>
+
 
                 <?php
 
@@ -71,7 +78,8 @@ if(isset($_GET['user_id'])){
                 <form action="" method="post" enctype="multipart/form-data">
                     <div class="register-form row">
                         <div class="form-group col-md-12 text-center">
-                            <img src="../upload/<?php echo $profile ?>" class="img-fluid" style="height: 150px; border-radius: 10px; text-align: center"/>
+
+                            <img src="../<?php echo $cleaned_url ?>" class="img-fluid" style="height: 150px; border-radius: 10px; text-align: center"/>
                         </div>
                         <div class="form-group col-md-6">
                             <input type="text" class='form-control' name='user_name' value="<?php echo $name ?>" require>
@@ -93,7 +101,7 @@ if(isset($_GET['user_id'])){
                         <div class="form-group col-md-6">
                             <select name="user_department" class='form-control'>
                                 <?php
-                                $query = "SELECT * FROM department WHERE department_id=$department";
+                                $query = "SELECT * FROM `department` WHERE department_id=$department";
                                 $query_run = mysqli_query($connection,$query);
                                 while($row = mysqli_fetch_assoc($query_run)){
                                     $department_id = $row['department_id'];
@@ -103,7 +111,7 @@ if(isset($_GET['user_id'])){
                                 }
                                 ?>
                                 <?php
-                                $query = "SELECT * FROM department WHERE department_id != $department ";
+                                $query = "SELECT * FROM `department` WHERE department_id != $department ";
                                 $query_run = mysqli_query($connection,$query);
                                 while($row = mysqli_fetch_assoc($query_run)){
                                     $department_id = $row['department_id'];
