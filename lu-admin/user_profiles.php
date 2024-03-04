@@ -26,7 +26,9 @@
                         <div class="card">
                             <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
                                 <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-                                    <img src="<?php  $profile_path = $_SESSION['profile'];
+
+                                    <img src="<?php
+                                    $profile_path = $_SESSION['profile'];
                                     $profile_path = substr($profile_path, 3);
                                     echo $profile_path; ?>"
                                          alt="placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"

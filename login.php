@@ -46,8 +46,14 @@
                                         <input type="hidden" class='form-control' name='user_name' placeholder='Student Name' required value='<?php echo $_SESSION['name']; ?>'>
                                     </div>
 
+                                    <?php
+                                    if(isset($_GET['st_id'])){
+                                        $st_id = $_GET['st_id'];
+                                    }
+                                    ?>
+
                                     <div class="form-group">
-                                        <input type="text" class='form-control' name='st_id' placeholder='Your Id.' required>
+                                        <input type="text" class='form-control' name='st_id' value="<?php echo $st_id; ?>" required placeholder="Student Id.">
                                     </div>
 
                                     <div class="form-group">

@@ -40,12 +40,21 @@ if(isset($_GET['id'])){
 
         <!-- Main Content Panel -->
 
+        <?php include("includes/admin_topbar.php") ?>
+
         <div class="col-md-8 m-auto">
 
             <div class="card mb-5 register_cards">
                 <div class="card-body">
 
-                    <h4 class="card-title text-center">Edit Users</h4>
+                    <h4 class="card-title text-center">Edit Users sss</h4>
+
+                    <?php
+
+                    $url = $profile;
+                    $cleaned_url = str_replace("../", "", $url);
+
+                    ?>
 
                     <?php
 
@@ -76,7 +85,7 @@ if(isset($_GET['id'])){
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="register-form row">
                             <div class="form-group col-md-12 text-center">
-                                <img src="../upload/<?php echo $profile ?>" class="img-fluid" style="height: 150px; border-radius: 10px; text-align: center"/>
+                                <img src="../<?php echo $cleaned_url ?>" class="img-fluid" style="height: 150px; border-radius: 10px; text-align: center"/>
                             </div>
                             <div class="form-group col-md-6">
                                 <input type="text" class='form-control' name='user_name' value="<?php echo $name ?>" require>

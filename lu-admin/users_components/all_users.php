@@ -69,7 +69,11 @@
                                 </td>
 
                                 <td>
-                                    <img src="../upload/<?php echo $profile ?>" class="img-fluid" style="height: 80px; border-radius: 50px; text-align: center"/>
+                                    <?php
+                                    $url = $profile;
+                                    $cleaned_url = str_replace("../", "", $url);
+                                    ?>
+                                    <img src="../<?php echo $cleaned_url ?>" class="img-fluid" style="height: 80px; border-radius: 50px; text-align: center"/>
                                 </td>
 
                                 <td>

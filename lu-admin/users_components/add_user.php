@@ -1,89 +1,75 @@
 <?php
 
-//Register Users
 
-
-if(isset($_POST['register_user'])){
-
-    $user_name =  real_escape($_POST['user_name']);
-    $user_email = real_escape($_POST['user_email']);
-    $user_phone = real_escape($_POST['user_phone']);
-    $user_id = real_escape($_POST['user_id']);
+if (isset($_POST['register_user'])) {
+    // Retrieve form data
+    global $connection;
+    $user_name = mysqli_real_escape_string($connection, $_POST['user_name']);
+    $user_email = mysqli_real_escape_string($connection, $_POST['user_email']);
+    $user_phone = mysqli_real_escape_string($connection, $_POST['user_phone']);
+    $user_id = mysqli_real_escape_string($connection, $_POST['user_id']);
     $user_department = $_POST['user_department'];
     $user_dob = $_POST['user_dob'];
     $user_blood_group = $_POST['user_blood_group'];
-    $user_role = $_POST['user_role'];
-    $user_password = real_escape($_POST['user_password']);
-    $user_cfpassword = real_escape($_POST['user_cfpassword']);
-
-    $user_avater = $_FILES['user_avater']['name'];
-    $user_avater_loc = $_FILES['user_avater']['tmp_name'];
+    $user_password = mysqli_real_escape_string($connection, $_POST['user_password']);
+    $user_cfpassword = mysqli_real_escape_string($connection, $_POST['user_cfpassword']);
 
     $phone_rgex = "/(\+88)?-?01[3-9]\d{8}/";
     $email_regx = "/([a-z\d][a-z\d_\-.]+[a-z\d]){1,10}@lus.ac.bd/";
 
-    $duplicate_user_id = mysqli_query($connection,"SELECT `st_id` FROM `users` WHERE `st_id` ='$user_id'");
-    $duplicate_user_email = mysqli_query($connection,"SELECT `email` FROM `users` WHERE `email` = '$user_email'");
-    $duplicate_user_phone = mysqli_query($connection,"SELECT `phone` FROM `users` WHERE `phone` = '$user_phone'");
+    // File upload handling
+    if (isset($_FILES['user_avater']) && $_FILES['user_avater']['error'] == UPLOAD_ERR_OK) {
 
+        $upload_directory = "../upload/";
+        $user_avater = $_FILES['user_avater']['name'];
+        $user_avater_loc = $_FILES['user_avater']['tmp_name'];
+        $avatar_path = $upload_directory . basename($user_avater);
 
-    $verification_code = bin2hex(random_bytes(16));
+        // Move the uploaded file to the specified directory
+        if (move_uploaded_file($user_avater_loc, $avatar_path)) {
+            // Check for duplicate entries
+            $duplicate_user_id = mysqli_query($connection, "SELECT `st_id` FROM `users` WHERE `st_id` ='$user_id'");
+            $duplicate_user_email = mysqli_query($connection, "SELECT `email` FROM `users` WHERE `email` = '$user_email'");
+            $duplicate_user_phone = mysqli_query($connection, "SELECT `phone` FROM `users` WHERE `phone` = '$user_phone'");
 
+            // Generate verification code
+            $verification_code = bin2hex(random_bytes(16));
 
+            if (!empty($user_name) && !empty($user_id) && !empty($user_password)) {
+                if (!preg_match($phone_rgex, $user_phone)) {
+                    echo "<script>
+                            alert('Phone number is not accepted');
+                         
+                          </script>";
+                } else if (mysqli_num_rows($duplicate_user_id)) {
+                    echo "<script> alert('user id is already used '); </script>";
+                } else if (mysqli_num_rows($duplicate_user_email)) {
+                    echo "<script> alert('user email is already used'); </script>";
+                } else if (mysqli_num_rows($duplicate_user_phone)) {
+                    echo "<script> alert('user phone number is already used'); </script>";
+                } else if ($user_password !== $user_cfpassword) {
+                    echo "<script> alert('Password and Confirm password is not match'); </script>";
+                } else if (!preg_match($email_regx, $user_email)) {
+                    echo "<script> alert('Email is not valid'); </script>";
+                } else {
+                    $query = "INSERT INTO `users`(`name`, `email`, `phone`, `st_id`, `department`, `dob`, `blood_group`, `password`, `profile`, `verification_code`, `is_verify`) VALUES ('$user_name','$user_email','$user_phone','$user_id','$user_department','$user_dob','$user_blood_group','$user_password','../$avatar_path','$verification_code','0')";
+                    $result = mysqli_query($connection, $query);
 
-
-    if(!empty($user_name) && !empty($user_email) && !empty($user_phone) && !empty($user_id) && !empty($user_blood_group) && !empty($user_password) && !empty($user_avater) ){
-
-        if(!preg_match($phone_rgex,$user_phone)){
-
-            echo "<h6 class='bg-warning text-center p-3 text-white'>Phone number are not accepted</h6>";
-
-        }else if(mysqli_num_rows($duplicate_user_id)){
-
-            echo "<h6 class='bg-warning text-center p-3 text-white'>User id is already used</h6>";
-
-        }else if(mysqli_num_rows($duplicate_user_email)){
-
-            echo "<h6 class='bg-warning text-center p-3 text-white'>User email is already used</h6>";
-
-        }else if(mysqli_num_rows($duplicate_user_phone)){
-
-            echo "<h6 class='bg-warning text-center p-3 text-white'>User phone number is already used</h6>";
-
-        }else if($user_password !== $user_cfpassword){
-
-            echo "<h6 class='bg-warning text-center p-3 text-white'>Password and Confirm password is not match</h6>";
-
-        }else if(!preg_match($email_regx,$user_email)){
-
-            echo "<h6 class='bg-warning text-center p-3 text-white'>Email is not valid</h6>";
-
-        }
-        else{
-
-
-
-            $query = "INSERT INTO `users`(`name`, `email`, `phone`, `st_id`, `department`, `dob`, `blood_group`, `password`, `profile`, `verification_code`, `is_verify`, `user_role`) VALUES ('$user_name','$user_email','$user_phone','$user_id','$user_department','$user_dob','$user_blood_group','$user_password','$user_avater','$verification_code','0','$user_role')";
-
-            $query_run = mysqli_query($connection,$query);
-
-            if($query_run){
-
-                move_uploaded_file($user_avater_loc,"../upload/$user_avater");
-                echo "<h6 class='bg-warning text-center p-3 text-white'>Congratulations, Verify Now</h6>";
-
-            }else{
-                echo "<h6 class='bg-warning text-center p-3 text-white'>Failed</h6>";
+                    if ($result) {
+                        echo "<h6 class='bg-warning text-center p-3 text-white'>Congratulations, Successfull</h6>";
+                    } else {
+                        echo "<h6 class='bg-warning text-center p-3 text-white'>Failed</h6>";
+                    }
+                }
+            } else {
+                echo "<script> alert('Data is empty'); </script>";
             }
+        } else {
+            echo "Failed to upload avatar.";
         }
-
-
-
-    }else{
-
-        echo "<h6 class='bg-warning text-center p-3 text-white'>OOPS, Some Data are missing</h6>";
+    } else {
+        echo "No file uploaded or upload error occurred.";
     }
-
 }
 
 
@@ -123,7 +109,7 @@ if(isset($_POST['register_user'])){
                             <select name="user_department" class='form-control'>
                                 <option value="">Select Department</option>
                                 <?php
-                                $query = "SELECT * FROM department";
+                                $query = "SELECT * FROM `department`";
                                 $query_run = mysqli_query($connection,$query);
                                 while($row = mysqli_fetch_assoc($query_run)){
                                     $department_id = $row['department_id'];
